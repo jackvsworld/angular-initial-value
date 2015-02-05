@@ -1,7 +1,7 @@
 /*!*
  * @file angular-initial-value.js
  * @version 1.0.3
- * @author Andrew Barton <andrew@smithcart.com>
+ * @author Andrew Barton <ajbarton@users.sf.net>
  * @copyright © 2015 Andrew Barton
  */
 angular.module('initialValue', [])
