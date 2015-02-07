@@ -12,20 +12,20 @@ Load the module in your application:
 
 Add the `initial-value` attribute to your elements:
 
-    <form ng-controller="myController">
+    <form ng-controller="SomeController">
       <span ng-bind="person.name" initial-value>Jack</span>
-      <input ng-model="person.address" type="text" value="123 Main St" initial-value>
       <meta ng-bind="person.email" itemprop="email" content="jack@example.com" initial-value>
+      <input ng-model="person.address" type="text" value="123 Main St" initial-value>
     </form>
     
 When AngularJS is finished compiling your application, the `$scope` variable will be automatically initialized with the appropriate values:
 
-    app.controller('myController', ['$scope', '$timeout', function ($scope, $timeout) {
+    app.controller('SomeController', ['$scope', '$timeout', function ($scope, $timeout) {
       $scope.person = {};
       $timeout(function () {
         console.log($scope.person.name);    // "Jack"
-        console.log($scope.person.address); // "123 Main St"
         console.log($scope.person.email);   // "jack@example.com"
+        console.log($scope.person.address); // "123 Main St"
       });
     }]);
 
