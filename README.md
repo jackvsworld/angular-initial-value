@@ -1,48 +1,35 @@
-# Angular Initial Value
+angular-initial-value
+=====================
 
-A tiny AngularJS directive to set ng-model (and consequently field value) based on form fields attributes.
+The `initial-value` directive allows you to initialize your `ngModel` with data from an existing DOM element.
 
-## Usage
+Usage
+-----
 
-1- Download plugin (`bower install angular-initial-value`) or use CDN address and import it after AngularJS:
-```html
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-<script src="//cdn.jsdelivr.net/angular.initial-value/latest/angular-initial-value.min.js"></script>
-```
+Load the module in your application:
 
-2- Load the module in your application:
-```js
-var app = angular.module('myApp', ['initialValue']);
-```
+    var app = angular.module('myApp', ['initialValue']);
 
-3- Add `initial-value` attribute for your form fields, it supports the most common inputs like `text`, `email`, `tel`, `color`, `range`, `search`, `url`, `password`, `checkbox`, `radio`, `select`, `textarea`.
+Add the `initial-value` attribute to your form fields:
 
-```html
-<body ng-app="myApp">
-  <input type="text" value="John" name="text" initial-value ng-model="text" id="text"/>
-</body>
-```
+    <form ng-controller="myController">
+      <input type="text" value="Jack" ng-model="person.name" initial-value>
+    </form>
+    
+When AngularJS is finished compiling your application, the `$scope` variable will be automatically initialized with the field values:
 
-You can pass the start value to attribute as well (this feature is not available only for `checkbox` and `radio`)
-```html
-<body ng-app="myApp">
-  <input type="text" name="text" initial-value="John" ng-model="text" id="text"/>
-</body>
-```
+    app.controller('myController', ['$scope', '$timeout', function ($scope, $timeout) {
+      $scope.person = {};
+      $timeout(function () {
+        console.log($scope.person.name); // "Jack"
+      });
+    }]);
 
-## How it works
+It supports the most common inputs like `text`, `email`, `tel`, `color`, `range`, `search`, `url`, `password`, `select`, `textarea`, and `hidden`.
 
-The script will read values from `value`, `checked` and `selected` attributes and load them into its respectives `ng-model`'s.
+Related projects
+----------------
 
+This project is based on the original [angular-initial-value](https://github.com/glaucocustodio/angular-initial-value) project by [Glauco Custódio](https://github.com/glaucocustodio).
 
-## Contributing
-
-Check [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
-
-## Related projects
-
-After starting this project I found this <a target="_blank" href="https://github.com/johngeorgewright/angular-auto-value">another one</a> which pretends deal with the same issue.
-
-## License
-
-This projected is licensed under the terms of the MIT license.
+There is also a project called [angular-auto-value](https://github.com/johngeorgewright/angular-auto-value) by [John Wright](https://github.com/johngeorgewright) which attempts to address the same issue.

@@ -1,4 +1,5 @@
-# Contributing
+Contributing
+============
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -7,8 +8,9 @@
 5. Push to the branch: `git push origin my-new-feature`
 6. Submit a pull request
 
-# Testing
+Testing
+-------
 
-Tests are run with [Protractor](http://angular.github.io/protractor/#/). After install it, you need execute `webdriver-manager start`, start a webserver (at port defined in `conf.js`) and run the command `protractor conf.js` to test.
+Tests are run with [Protractor](http://angular.github.io/protractor/#/). After installing it, you must execute `webdriver-manager start` to start a web server on the port defined in `conf.js`. Then execute the command `protractor conf.js` to test.
 
-Note: in `gulpfile.js` already exists a task to run a webserver in proper port, just run `gulp` to start it.
+**NOTE:** The `gulpfile.js` already contains a task to run a web server on port 8000. Just execute the `gulp` command to start the service.

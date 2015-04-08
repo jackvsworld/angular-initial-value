@@ -1,11 +1,12 @@
 {
   "name": "angular-initial-value",
-  "version": "0.0.1",
-  "homepage": "https://github.com/glaucocustodio/angular-initial-value",
+  "version": "0.0.2",
+  "homepage": "https://github.com/jackvsworld/angular-initial-value",
   "authors": [
+    "Andrew Barton <ajbarton@users.sf.net>",
     "Glauco Custódio <glauco.custodio@gmail.com>"
   ],
-  "description": "A tiny AngularJS directive to set ng-model (and consequently field value) based on form fields attributes.",
+  "description": "An AngularJS directive that initializes your ngModel with data from the DOM.",
   "main": "dist/angular-initial-value.js",
   "keywords": [
     "angular",
