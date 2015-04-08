@@ -1,7 +1,7 @@
 angular-initial-value
 =====================
 
-The `initial-value` directive allows you to initialize your `ngModel` with data from an existing DOM element.
+The `initial-value` directive allows you to initialize your controller's `$scope` with data from an existing DOM element.
 
 Usage
 -----
@@ -10,18 +10,22 @@ Load the module in your application:
 
     var app = angular.module('myApp', ['initialValue']);
 
-Add the `initial-value` attribute to your form fields:
+Add the `initial-value` attribute to your elements:
 
     <form ng-controller="myController">
-      <input type="text" value="Jack" ng-model="person.name" initial-value>
+      <span ng-bind="person.name" initial-value>Jack</span>
+      <input ng-model="person.address" type="text" value="123 Main St" initial-value>
+      <meta ng-bind="person.email" itemprop="email" content="jack@example.com" initial-value>
     </form>
     
-When AngularJS is finished compiling your application, the `$scope` variable will be automatically initialized with the field values:
+When AngularJS is finished compiling your application, the `$scope` variable will be automatically initialized with the appropriate values:
 
     app.controller('myController', ['$scope', '$timeout', function ($scope, $timeout) {
       $scope.person = {};
       $timeout(function () {
-        console.log($scope.person.name); // "Jack"
+        console.log($scope.person.name);    // "Jack"
+        console.log($scope.person.address); // "123 Main St"
+        console.log($scope.person.email);   // "jack@example.com"
       });
     }]);
 
